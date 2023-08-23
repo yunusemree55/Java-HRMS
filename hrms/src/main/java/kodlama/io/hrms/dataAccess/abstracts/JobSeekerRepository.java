@@ -4,9 +4,9 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import kodlama.io.hrms.entities.concretes.JobSeeker;
 
-public interface JobSeekerRepository extends JpaRepository<JobSeeker, Integer> {
+public interface JobSeekerRepository extends JpaRepository<JobSeeker, Integer>, EntityRepository<JobSeeker> {
 	
-	boolean existsByEmail(String email);
+	
 	boolean existsByIdentityNumber(String identityNumber);
 
 }

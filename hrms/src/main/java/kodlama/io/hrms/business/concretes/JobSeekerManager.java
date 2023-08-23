@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 import kodlama.io.hrms.business.abstracts.JobSeekerService;
 import kodlama.io.hrms.business.requests.jobSeekerRequests.AddJobSeekerRequest;
 import kodlama.io.hrms.business.responses.jobSeekerResponses.GetAllJobSeekerResponse;
-import kodlama.io.hrms.business.rules.JobSeekerBusinesRules;
+import kodlama.io.hrms.business.rules.JobSeekerBusinessRules;
 import kodlama.io.hrms.core.utilities.mapper.ModelMapperService;
 import kodlama.io.hrms.dataAccess.abstracts.JobSeekerRepository;
 import kodlama.io.hrms.entities.concretes.JobSeeker;
@@ -20,7 +20,7 @@ public class JobSeekerManager implements JobSeekerService{
 
 	private JobSeekerRepository jobSeekerRepository;
 	private ModelMapperService modelMapperService;
-	private JobSeekerBusinesRules jobSeekerBusinesRules;
+	private JobSeekerBusinessRules jobSeekerBusinessRules;
 	
 	@Override
 	public List<GetAllJobSeekerResponse> getAll() {
@@ -37,10 +37,10 @@ public class JobSeekerManager implements JobSeekerService{
 	public void add(AddJobSeekerRequest addJobSeekerRequest) {
 		
 		
-		jobSeekerBusinesRules.checkPasswordFields(addJobSeekerRequest.getPassword(),addJobSeekerRequest.getConfirmPassword());
-		jobSeekerBusinesRules.checkEmailField(addJobSeekerRequest.getEmail());
-		jobSeekerBusinesRules.checkEmailIfExistsBefore(addJobSeekerRequest.getEmail());
-		jobSeekerBusinesRules.checkIdentityNumberExistsBefore(addJobSeekerRequest.getIdentityNumber());
+		jobSeekerBusinessRules.checkPasswordFields(addJobSeekerRequest.getPassword(),addJobSeekerRequest.getConfirmPassword());
+		jobSeekerBusinessRules.checkEmailField(addJobSeekerRequest.getEmail());
+		jobSeekerBusinessRules.checkEmailIfExistsBefore(addJobSeekerRequest.getEmail());
+		jobSeekerBusinessRules.checkIdentityNumberExistsBefore(addJobSeekerRequest.getIdentityNumber());
 		JobSeeker jobSeeker = modelMapperService.forRequest()
 				.map(addJobSeekerRequest, JobSeeker.class);
 		

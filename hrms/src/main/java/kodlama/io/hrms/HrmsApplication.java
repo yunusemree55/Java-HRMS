@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 import kodlama.io.hrms.core.exceptions.BusinessException;
 import kodlama.io.hrms.core.exceptions.ProblemDetail;
 import kodlama.io.hrms.core.exceptions.ValidationProblemDetail;
+import kodlama.io.hrms.core.utilities.verifications.EmailVerificationManager;
 
 @SpringBootApplication
 @RestControllerAdvice
@@ -51,8 +52,6 @@ public class HrmsApplication {
 		
 		return validationProblemDetail;
 		
-		
-		
 	}
 
 	
@@ -61,6 +60,10 @@ public class HrmsApplication {
 		return new ModelMapper();
 	}
 	
+	@Bean
+	public EmailVerificationManager emailVerification() {
+		return new EmailVerificationManager();
+	}
 	
 	 
 }

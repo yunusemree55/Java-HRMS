@@ -30,7 +30,7 @@ public class JobSeeker extends User{
 	private int id;
 	
 	@Column(name = "firstName")
-	private String firstName;
+	private String firstName; 
 	   
 	@Column(name = "lastName") 
 	private String lastName;
