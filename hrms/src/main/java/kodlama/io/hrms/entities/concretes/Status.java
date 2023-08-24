@@ -13,12 +13,12 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Entity
 @Data
+@Entity
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name="jobPositions")
-public class JobPosition {
+@Table(name="statuses")
+public class Status {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -28,8 +28,7 @@ public class JobPosition {
 	@Column(name="name")
 	private String name;
 	
-	
-	@OneToMany(mappedBy = "jobPosition")
+	@OneToMany(mappedBy = "status")
 	private List<JobAdvertisement> jobAdvertisements;
 
 }

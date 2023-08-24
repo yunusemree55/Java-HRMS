@@ -1,7 +1,10 @@
 package kodlama.io.hrms.entities.concretes;
 
+import java.util.List;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.PrimaryKeyJoinColumn;
 import jakarta.persistence.Table;
 import kodlama.io.hrms.entities.abstracts.User;
@@ -27,6 +30,11 @@ public class Employer extends User{
 	
 	@Column(name="phoneNumber")
 	private String phoneNumber;
+	
+	@OneToMany(mappedBy = "employer")
+	private List<JobAdvertisement> jobAdvertisements;
+	
+	
 	
 	
 }
