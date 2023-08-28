@@ -7,9 +7,12 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.PrimaryKeyJoinColumn;
 import jakarta.persistence.Table;
 import kodlama.io.hrms.entities.abstracts.User;
+import kodlama.io.hrms.entities.concretes.cvs.Cv;
+import kodlama.io.hrms.entities.concretes.cvs.Photo;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -40,6 +43,13 @@ public class JobSeeker extends User{
 	
 	@Column(name = "dateOfBirth") 
 	private LocalDate dateOfBirth;
+	
+	
+	@OneToOne(mappedBy = "jobSeeker")
+	private Cv cv;
+	
+	@OneToOne(mappedBy = "jobSeeker")
+	private Photo photo;
 	
 	
 } 

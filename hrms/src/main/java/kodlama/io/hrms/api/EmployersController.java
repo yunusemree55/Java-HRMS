@@ -23,7 +23,7 @@ public class EmployersController {
 	
 	private EmployerService employerService;
 	
-	@GetMapping
+	@GetMapping("/getall")
 	public List<GetAllEmployerResponse> getAll(){
 		
 		return employerService.getAll();

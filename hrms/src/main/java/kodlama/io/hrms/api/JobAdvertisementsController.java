@@ -6,6 +6,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -15,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 import jakarta.validation.Valid;
 import kodlama.io.hrms.business.abstracts.JobAdvertisementService;
 import kodlama.io.hrms.business.requests.jobAdvertisementRequests.AddJobAdvertisementRequest;
+import kodlama.io.hrms.business.requests.jobAdvertisementRequests.UpdateJobAdvertisementRequest;
 import kodlama.io.hrms.business.responses.jobAdvertisementResponses.GetAllJobAdvertisementResponse;
 import lombok.AllArgsConstructor;
 
@@ -56,6 +58,12 @@ public class JobAdvertisementsController {
 	public void add(@RequestBody @Valid AddJobAdvertisementRequest addJobAdvertisementRequest) {
 		
 		jobAdvertisementService.add(addJobAdvertisementRequest);
+	}
+	
+	@PutMapping
+	public void update(UpdateJobAdvertisementRequest jobAdvertisementRequest) {
+		
+		jobAdvertisementService.update(jobAdvertisementRequest);
 	}
 	
 	@DeleteMapping("/delete/:id")

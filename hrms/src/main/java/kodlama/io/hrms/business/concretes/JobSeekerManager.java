@@ -41,6 +41,7 @@ public class JobSeekerManager implements JobSeekerService{
 		jobSeekerBusinessRules.checkEmailField(addJobSeekerRequest.getEmail());
 		jobSeekerBusinessRules.checkEmailIfExistsBefore(addJobSeekerRequest.getEmail());
 		jobSeekerBusinessRules.checkIdentityNumberExistsBefore(addJobSeekerRequest.getIdentityNumber());
+		
 		JobSeeker jobSeeker = modelMapperService.forRequest()
 				.map(addJobSeekerRequest, JobSeeker.class);
 		

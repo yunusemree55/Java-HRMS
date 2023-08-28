@@ -12,7 +12,7 @@ import lombok.AllArgsConstructor;
 
 @Service
 @AllArgsConstructor
-public class BusinessRules<T extends User> implements CommonBusinessRules {
+public class BusinessRules<T extends User> extends EntityBusinessRules implements CommonBusinessRules {
 	
 	private EntityRepository<T> entityRepository;
 	

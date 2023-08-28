@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import kodlama.io.hrms.business.abstracts.JobAdvertisementService;
 import kodlama.io.hrms.business.requests.jobAdvertisementRequests.AddJobAdvertisementRequest;
+import kodlama.io.hrms.business.requests.jobAdvertisementRequests.UpdateJobAdvertisementRequest;
 import kodlama.io.hrms.business.responses.jobAdvertisementResponses.GetAllJobAdvertisementResponse;
 import kodlama.io.hrms.core.utilities.mapper.ModelMapperService;
 import kodlama.io.hrms.dataAccess.abstracts.JobAdvertisementRepository;
@@ -87,6 +88,21 @@ public class JobAdvertisementManager implements JobAdvertisementService{
 				.collect(Collectors.toList());
 		
 		return jobAdvertisementResponseList;
+	}
+
+
+	@Override
+	public void update(UpdateJobAdvertisementRequest jobAdvertisementRequest) {
+		
+		JobAdvertisement target = jobAdvertisementRepository.findById(jobAdvertisementRequest.getId()).orElseThrow();
+		
+		JobAdvertisement jobAdvertisement = modelMapperService.forRequest().map(jobAdvertisementRequest, JobAdvertisement.class);
+		
+		jobAdvertisement.setStartingDate(target.getStartingDate());
+		
+		jobAdvertisementRepository.save(jobAdvertisement);
+		
+		
 	}
 
 

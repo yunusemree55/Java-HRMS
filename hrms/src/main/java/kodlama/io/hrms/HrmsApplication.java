@@ -6,12 +6,14 @@ import org.modelmapper.ModelMapper;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
+import org.springframework.web.multipart.MaxUploadSizeExceededException;
 
 import kodlama.io.hrms.core.exceptions.BusinessException;
 import kodlama.io.hrms.core.exceptions.ProblemDetail;
@@ -53,7 +55,26 @@ public class HrmsApplication {
 		return validationProblemDetail;
 		
 	}
+	
+	@ExceptionHandler
+	@ResponseStatus(code = HttpStatus.BAD_REQUEST)
+	public ProblemDetail handleMaxUploadSizeExceededException(MaxUploadSizeExceededException maxUploadSizeExceededException) {
+		
+		ProblemDetail problemDetail = new ProblemDetail("Yüklemeye çalıştığınız fotoğraf boyutu çok büyük");
+		
+		return problemDetail;
+		
+	}
 
+	@ExceptionHandler
+	@ResponseStatus(code = HttpStatus.BAD_REQUEST)
+	public ProblemDetail handleDataIntegrityViolationException(DataIntegrityViolationException dataIntegrityViolationException) {
+		
+		ProblemDetail problemDetail = new ProblemDetail("Böyle bir dataya ait veri zaten mevcut");
+		
+		return problemDetail;
+	}
+	
 	
 	@Bean
 	public ModelMapper modelMapper() {
@@ -64,6 +85,8 @@ public class HrmsApplication {
 	public EmailVerificationManager emailVerification() {
 		return new EmailVerificationManager();
 	}
+	
+	
 	
 	 
 }
