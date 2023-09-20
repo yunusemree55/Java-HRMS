@@ -3,8 +3,10 @@ package kodlama.io.hrms.api;
 import java.util.List;
 
 import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -23,6 +25,7 @@ import lombok.AllArgsConstructor;
 @RestController
 @RequestMapping("/api/jobadvertisements")
 @AllArgsConstructor
+@CrossOrigin
 public class JobAdvertisementsController {
 	
 	private JobAdvertisementService jobAdvertisementService;
@@ -52,7 +55,20 @@ public class JobAdvertisementsController {
 		return jobAdvertisementService.getJobAdvertisementByCompanyName(companyName);
 	}
 	
+	@GetMapping("/getjobadvertisementsbyemployerid/{id}")
+	public List<GetAllJobAdvertisementResponse> getJobAdvertisementsByEmployerId(@PathVariable int id){
+		
+		return jobAdvertisementService.getJobAdvertisementsByEmployerId(id);
+	}
 	
+	@GetMapping("/getJobAdvertisementById/:id")
+	GetAllJobAdvertisementResponse getJobAdvertisementById(@RequestParam int id){
+		
+		return jobAdvertisementService.getJobAdvertisementById(id);
+		
+	}
+	
+	 
 	@PostMapping("/add")
 	@ResponseStatus(code = HttpStatus.CREATED)
 	public void add(@RequestBody @Valid AddJobAdvertisementRequest addJobAdvertisementRequest) {
@@ -60,7 +76,7 @@ public class JobAdvertisementsController {
 		jobAdvertisementService.add(addJobAdvertisementRequest);
 	}
 	
-	@PutMapping
+	@PutMapping("/update")
 	public void update(UpdateJobAdvertisementRequest jobAdvertisementRequest) {
 		
 		jobAdvertisementService.update(jobAdvertisementRequest);

@@ -16,8 +16,10 @@ public interface JobAdvertisementRepository extends JpaRepository<JobAdvertiseme
 	@Query("From JobAdvertisement Order By endingDate desc")
 	List<JobAdvertisement> getJobAdvertisementByEndingDate();
 	
-	@Query("From JobAdvertisement Where employer.companyName = :companyName")
+	@Query("From JobAdvertisement Where employer.companyName LIKE :companyName% " )
 	List<JobAdvertisement> getJobAdvertisementByCompanyName(String companyName);
 	
+	List<JobAdvertisement> getJobAdvertisementsByEmployerId(int id);
 	
+	JobAdvertisement getJobAdvertisementById(int id);
 }

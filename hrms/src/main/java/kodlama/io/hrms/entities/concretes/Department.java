@@ -1,4 +1,4 @@
-package kodlama.io.hrms.entities.concretes.cvs;
+package kodlama.io.hrms.entities.concretes;
 
 import java.util.List;
 
@@ -9,7 +9,6 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
-import kodlama.io.hrms.entities.concretes.JobSeeker;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -18,8 +17,8 @@ import lombok.NoArgsConstructor;
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name="universities")
-public class University {
+@Table(name="departments")
+public class Department {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -29,7 +28,7 @@ public class University {
 	@Column(name="name")
 	private String name;
 	
-	@OneToMany(mappedBy = "university")
+	@OneToMany(mappedBy = "department")
 	private List<JobSeeker> jobSeekers;
-
+	
 }

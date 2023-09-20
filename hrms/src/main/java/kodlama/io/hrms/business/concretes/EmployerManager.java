@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import kodlama.io.hrms.business.abstracts.EmployerService;
 import kodlama.io.hrms.business.requests.employerRequests.AddEmployerRequest;
 import kodlama.io.hrms.business.responses.employerResponses.GetAllEmployerResponse;
+import kodlama.io.hrms.business.responses.employerResponses.GetEmployerResponse;
 import kodlama.io.hrms.business.rules.EmployerBusinessRules;
 import kodlama.io.hrms.core.utilities.mapper.ModelMapperService;
 import kodlama.io.hrms.core.utilities.verifications.EmailVerificationService;
@@ -56,6 +57,40 @@ public class EmployerManager implements EmployerService {
 		employerRepository.save(employer);
 		
 		
+	}
+
+
+	@Override
+	public GetEmployerResponse getEmployerByEmail(String email) {
+		
+		Employer target = employerRepository.getByEmail(email);
+		
+		if(target != null) {
+			GetEmployerResponse employerResponse = modelMapperService.forResponse().map(target, GetEmployerResponse.class);
+			return employerResponse;
+		}
+		return null;
+	}
+
+
+	@Override
+	public boolean exitsByEmail(String email) {
+		
+		return employerRepository.existsByEmail(email);
+	}
+
+
+	@Override
+	public GetEmployerResponse getEmployerById(int id) {
+		
+		Employer target = employerRepository.findById(id).orElse(null);
+		
+		if(target != null) {
+			GetEmployerResponse employerResponse = modelMapperService.forResponse().map(target, GetEmployerResponse.class);
+			return employerResponse;
+		}
+		
+		return null;
 	}
 
 }

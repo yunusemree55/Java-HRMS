@@ -12,20 +12,21 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class GetAllJobSeekerResponse {
+public class GetJobSeekerResponse {
 	
+	private String id;
 	private String firstName;
 	private String lastName;
 	private String email;
+	private String password;
 	private String identityNumber;
-	private String universityName;
-	private String departmentName;
 	private LocalDate dateOfBirth;
+	private String photoUrl;
+	private String universityName;
 	private LocalDate entranceDate;
 	private LocalDate graduationDate;
-	private String photoUrl;
-	private GetAllCvResponse cv;
+	private String departmentName;
 	private List<GetAllSocialMediaResponse> socialMedias;
-	
-	
+	private GetAllCvResponse cv;
+
 }

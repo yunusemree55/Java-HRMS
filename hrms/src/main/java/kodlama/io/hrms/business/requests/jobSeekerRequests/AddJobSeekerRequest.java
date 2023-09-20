@@ -29,8 +29,15 @@ public class AddJobSeekerRequest {
 	@Size(max = 11,min = 11,message = "TC Kimlik 11 haneli olmalı")
 	private String identityNumber;
 	
-	
 	private LocalDate dateOfBirth;
+	
+	private int universityId;
+	
+	private LocalDate entranceDate;
+	
+	private LocalDate graduationDate;
+	
+	private int departmentId;
 	
 	@Size(min = 3,message = "Şifre alanı en az 3 karakter olmalıdır")
 	private String password;

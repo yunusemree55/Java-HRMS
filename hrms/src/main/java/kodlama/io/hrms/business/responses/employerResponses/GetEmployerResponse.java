@@ -7,20 +7,14 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class GetAllEmployerResponse {
-
+public class GetEmployerResponse {
+	
 	private int id;
-	
 	private String companyName;
-	
 	private String email;
-	
+	private String password;
 	private String webSite;
-	
 	private String phoneNumber;
-	
 	private String photoUrl;
-	
-	
-	
+
 }

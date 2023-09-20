@@ -3,6 +3,7 @@ package kodlama.io.hrms.api;
 import java.util.List;
 
 import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -18,18 +19,19 @@ import lombok.AllArgsConstructor;
 @RestController
 @RequestMapping("/api/jobexperiences")
 @AllArgsConstructor
+@CrossOrigin
 public class JobExperiencesController {
 	
 	private JobExperienceService jobExperienceService;
 	
-	@GetMapping
+	@GetMapping("/getall")
 	List<GetAllJobExperienceResponse> getAll(){
 		
 		return jobExperienceService.getAll();
 		
 	}
 	
-	@PostMapping
+	@PostMapping("/add")
 	@ResponseStatus(code = HttpStatus.CREATED)
 	void add(@RequestBody AddJobExperienceRequest addJobExperienceRequest) {
 		

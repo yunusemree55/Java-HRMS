@@ -8,6 +8,7 @@ import kodlama.io.hrms.business.responses.cv.socialMediaResponses.GetAllSocialMe
 public interface SocialMediaService {
 	
 	List<GetAllSocialMediaResponse> getAll();
+	List<GetAllSocialMediaResponse> getSocialMediaByUserId(int id);
 	void add(AddSocialMediaRequest addSocialMediaRequest);
 
 }

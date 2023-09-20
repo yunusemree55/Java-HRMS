@@ -11,7 +11,13 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class GetAllJobAdvertisementResponse {
 	
+	private int id;
+	private String photoUrl;
 	private String companyName;
+	private String employerEmail;
+	private String employerWebsite;
+	private String minSalary;
+	private String maxSalary;
 	private String jobPositionName;
 	private String description;
 	private String cityName;

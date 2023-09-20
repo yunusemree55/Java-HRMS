@@ -61,6 +61,36 @@ public class JobAdvertisementManager implements JobAdvertisementService{
 		
 	}
 	
+	
+	@Override
+	public List<GetAllJobAdvertisementResponse> getJobAdvertisementByEndingDate() {
+		List<GetAllJobAdvertisementResponse> jobAdvertisementResponseList = jobAdvertisementRepository.getJobAdvertisementByEndingDate()
+				.stream().map(jobAdvertisement -> modelMapperService.forResponse().map(jobAdvertisement, GetAllJobAdvertisementResponse.class))
+				.collect(Collectors.toList());
+		
+		return jobAdvertisementResponseList;
+	}
+	
+	@Override
+	public List<GetAllJobAdvertisementResponse> getJobAdvertisementsByEmployerId(int id) {
+		
+		List<GetAllJobAdvertisementResponse> jobAdvertisementResponses = jobAdvertisementRepository.getJobAdvertisementsByEmployerId(id)
+				.stream().map(jobAdvertisement -> modelMapperService.forResponse().map(jobAdvertisement, GetAllJobAdvertisementResponse.class))
+				.collect(Collectors.toList());
+		
+		return jobAdvertisementResponses;
+	}
+	
+	@Override
+	public GetAllJobAdvertisementResponse getJobAdvertisementById(int id) {
+		
+		JobAdvertisement target = jobAdvertisementRepository.findById(id).orElseThrow();
+		GetAllJobAdvertisementResponse jobAdvertisementResponse = modelMapperService.forResponse().map(target, GetAllJobAdvertisementResponse.class);
+		
+		return jobAdvertisementResponse;
+	}
+	
+	
 
 	@Override
 	public void add(AddJobAdvertisementRequest addJobAdvertisementRequest) {
@@ -82,16 +112,6 @@ public class JobAdvertisementManager implements JobAdvertisementService{
 
 
 	@Override
-	public List<GetAllJobAdvertisementResponse> getJobAdvertisementByEndingDate() {
-		List<GetAllJobAdvertisementResponse> jobAdvertisementResponseList = jobAdvertisementRepository.getJobAdvertisementByEndingDate()
-				.stream().map(jobAdvertisement -> modelMapperService.forResponse().map(jobAdvertisement, GetAllJobAdvertisementResponse.class))
-				.collect(Collectors.toList());
-		
-		return jobAdvertisementResponseList;
-	}
-
-
-	@Override
 	public void update(UpdateJobAdvertisementRequest jobAdvertisementRequest) {
 		
 		JobAdvertisement target = jobAdvertisementRepository.findById(jobAdvertisementRequest.getId()).orElseThrow();
@@ -101,9 +121,15 @@ public class JobAdvertisementManager implements JobAdvertisementService{
 		jobAdvertisement.setStartingDate(target.getStartingDate());
 		
 		jobAdvertisementRepository.save(jobAdvertisement);
-		
+		 
 		
 	}
+
+
+	
+
+
+	
 
 
 	

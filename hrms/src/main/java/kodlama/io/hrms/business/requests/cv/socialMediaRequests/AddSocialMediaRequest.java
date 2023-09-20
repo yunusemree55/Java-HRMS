@@ -9,8 +9,9 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class AddSocialMediaRequest {
 	
+	
 	private String url;
-	private int cvId;
+	private int userId;
 
 	
 }

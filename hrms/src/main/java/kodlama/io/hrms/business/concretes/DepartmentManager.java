@@ -10,7 +10,7 @@ import kodlama.io.hrms.business.requests.cv.departmentRequests.AddDepartmentRequ
 import kodlama.io.hrms.business.responses.cv.departmentResponses.GetAllDepartmentResponse;
 import kodlama.io.hrms.core.utilities.mapper.ModelMapperService;
 import kodlama.io.hrms.dataAccess.abstracts.DepartmentRepository;
-import kodlama.io.hrms.entities.concretes.cvs.Department;
+import kodlama.io.hrms.entities.concretes.Department;
 import lombok.AllArgsConstructor;
 
 @Service

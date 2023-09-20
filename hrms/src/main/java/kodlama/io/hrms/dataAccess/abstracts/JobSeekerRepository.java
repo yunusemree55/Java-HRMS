@@ -8,5 +8,7 @@ public interface JobSeekerRepository extends JpaRepository<JobSeeker, Integer>, 
 	
 	
 	boolean existsByIdentityNumber(String identityNumber);
+	boolean existsByEmail(String email);
+	JobSeeker getByEmail(String email);
 
 }

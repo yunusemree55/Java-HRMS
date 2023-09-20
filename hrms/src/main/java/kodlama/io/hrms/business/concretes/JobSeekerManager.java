@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import kodlama.io.hrms.business.abstracts.JobSeekerService;
 import kodlama.io.hrms.business.requests.jobSeekerRequests.AddJobSeekerRequest;
 import kodlama.io.hrms.business.responses.jobSeekerResponses.GetAllJobSeekerResponse;
+import kodlama.io.hrms.business.responses.jobSeekerResponses.GetJobSeekerResponse;
 import kodlama.io.hrms.business.rules.JobSeekerBusinessRules;
 import kodlama.io.hrms.core.utilities.mapper.ModelMapperService;
 import kodlama.io.hrms.dataAccess.abstracts.JobSeekerRepository;
@@ -49,6 +50,40 @@ public class JobSeekerManager implements JobSeekerService{
 		jobSeekerRepository.save(jobSeeker);
 		
 		
+	}
+
+	@Override
+	public GetJobSeekerResponse getJobSeekerByEmail(String email){
+		
+		JobSeeker target = jobSeekerRepository.getByEmail(email);
+		
+		if(target != null) {
+			GetJobSeekerResponse jobSeekerResponse = modelMapperService.forResponse().map(target, GetJobSeekerResponse.class);
+			return jobSeekerResponse;
+		}
+		
+		
+		return null;
+		
+	}
+
+	@Override
+	public boolean existsByIdentityNumber(String identityNumber) {
+		
+		return jobSeekerRepository.existsByIdentityNumber(identityNumber);
+	}
+
+	@Override
+	public boolean existsByEmail(String email) {
+		
+		return jobSeekerRepository.existsByEmail(email);
+	}
+
+	@Override
+	public GetJobSeekerResponse getJobSeekerById(int id) {
+		JobSeeker target = jobSeekerRepository.getReferenceById(id);
+		GetJobSeekerResponse jobSeekerResponse = modelMapperService.forResponse().map(target, GetJobSeekerResponse.class);
+		return jobSeekerResponse;
 	}
 	
 	

@@ -11,7 +11,7 @@ import kodlama.io.hrms.business.responses.cv.socialMediaResponses.GetAllSocialMe
 import kodlama.io.hrms.business.rules.SocialMediaBusinessRules;
 import kodlama.io.hrms.core.utilities.mapper.ModelMapperService;
 import kodlama.io.hrms.dataAccess.abstracts.SocialMediaRepository;
-import kodlama.io.hrms.entities.concretes.cvs.SocialMedia;
+import kodlama.io.hrms.entities.concretes.SocialMedia;
 import lombok.AllArgsConstructor;
 
 @Service
@@ -32,6 +32,16 @@ public class SocialMediaManager implements SocialMediaService {
 	}
 	
 	@Override
+	public List<GetAllSocialMediaResponse> getSocialMediaByUserId(int id) {
+		
+		List<GetAllSocialMediaResponse> socialMediaResponseList = socialMediaRepository.getSocialMediaByUserId(id).stream()
+				.map(socialMedia -> modelMapperService.forResponse().map(socialMedia, GetAllSocialMediaResponse.class))
+				.collect(Collectors.toList());
+		
+		return socialMediaResponseList;
+	}
+	
+	@Override
 	public void add(AddSocialMediaRequest addSocialMediaRequest) {
 		
 		socialMediaBusinessRules.checkWebSite(addSocialMediaRequest.getUrl());
@@ -42,6 +52,8 @@ public class SocialMediaManager implements SocialMediaService {
 		socialMediaRepository.save(socialMedia);
 		
 	}
+
+	
 	
 	
 	

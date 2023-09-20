@@ -25,7 +25,7 @@ public class AddEmployerRequest {
 	
 	@NotNull(message = "Telefon numarası alanı boş bırakılamaz")
 	@NotBlank
-	@Size(max = 11,min = 11,message = "Telefon alanı 11 haneli olmalıdır")
+	@Size(max = 12,min = 12,message = "Telefon alanı 12 haneli olmalıdır")
 	private String phoneNumber;
 	
 	@Size(min = 3,message = "Şifre alanı en az 3 karakter olmalıdır")

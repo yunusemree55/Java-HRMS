@@ -1,6 +1,7 @@
 package kodlama.io.hrms;
 
 import java.util.HashMap;
+import java.util.NoSuchElementException;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.boot.SpringApplication;
@@ -73,6 +74,17 @@ public class HrmsApplication {
 		ProblemDetail problemDetail = new ProblemDetail("Böyle bir dataya ait veri zaten mevcut");
 		
 		return problemDetail;
+	}
+	
+	@ExceptionHandler
+	@ResponseStatus(code= HttpStatus.BAD_REQUEST)
+	public ProblemDetail handleNoSuchElementException(NoSuchElementException noSuchElementException) {
+		
+		ProblemDetail problemDetail = new ProblemDetail("Böyle bir veri mevcut değil");
+		
+		return problemDetail;
+		
+		
 	}
 	
 	

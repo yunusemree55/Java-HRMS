@@ -1,6 +1,5 @@
 package kodlama.io.hrms.entities.concretes.cvs;
 
-import java.time.LocalDate;
 import java.util.List;
 
 import jakarta.persistence.Column;
@@ -9,7 +8,6 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
@@ -31,21 +29,7 @@ public class Cv {
 	private int id;
 	
 	@Column(name="description")
-	private String description;
-	
-	@ManyToOne
-	@JoinColumn(name="universityId")
-	private University university;
-	
-	@Column(name="entranceDate")
-	private LocalDate entranceDate;
-	
-	@Column(name="graduationDate")
-	private LocalDate graduationDate;
-	
-	@ManyToOne
-	@JoinColumn(name="departmentId")
-	private Department department;
+	private String description;	
 	
 	@OneToMany(mappedBy = "cv")
 	private List<JobExperience> jobExperiences;
@@ -55,10 +39,6 @@ public class Cv {
 	
 	@OneToMany(mappedBy = "cv")
 	private List<Language> languages;
-	
-	@OneToMany(mappedBy = "cv")
-	private List<SocialMedia> socialMedias;
-	
 	
 	@OneToOne
 	@JoinColumn(name = "jobSeekerId")

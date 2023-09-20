@@ -3,6 +3,7 @@ package kodlama.io.hrms.api;
 import java.util.List;
 
 import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -18,17 +19,18 @@ import lombok.AllArgsConstructor;
 @RestController
 @RequestMapping("/api/cvs")
 @AllArgsConstructor
+@CrossOrigin
 public class CvsController {
 	
 	private CvService cvService;
 	
-	@GetMapping
+	@GetMapping("/getall")
 	List<GetAllCvWithJobSeekerResponse> getAll(){
 		
 		return cvService.getAll();
 	}
 	
-	@PostMapping
+	@PostMapping("/add")
 	@ResponseStatus(code = HttpStatus.CREATED)
 	void add(@RequestBody AddCvRequest addCvRequest) {
 	
