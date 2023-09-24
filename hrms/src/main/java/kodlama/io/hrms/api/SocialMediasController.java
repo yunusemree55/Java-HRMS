@@ -13,8 +13,8 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import kodlama.io.hrms.business.abstracts.SocialMediaService;
-import kodlama.io.hrms.business.requests.cv.socialMediaRequests.AddSocialMediaRequest;
-import kodlama.io.hrms.business.responses.cv.socialMediaResponses.GetAllSocialMediaResponse;
+import kodlama.io.hrms.business.requests.socialMediaRequests.AddSocialMediaRequest;
+import kodlama.io.hrms.business.responses.socialMediaResponses.GetAllSocialMediaResponse;
 import lombok.AllArgsConstructor;
 
 @RestController

@@ -12,6 +12,7 @@ import lombok.NoArgsConstructor;
 public class GetAllJobAdvertisementResponse {
 	
 	private int id;
+	private int employerId;
 	private String photoUrl;
 	private String companyName;
 	private String employerEmail;
@@ -21,7 +22,7 @@ public class GetAllJobAdvertisementResponse {
 	private String jobPositionName;
 	private String description;
 	private String cityName;
-	private String statusName;
+	private int statusId;
 	private int numberOfPosition;
 	private LocalDate endingDate;
 	private LocalDate startingDate;

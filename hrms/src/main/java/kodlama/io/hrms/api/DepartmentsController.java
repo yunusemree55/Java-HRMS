@@ -12,8 +12,8 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import kodlama.io.hrms.business.abstracts.DepartmentService;
-import kodlama.io.hrms.business.requests.cv.departmentRequests.AddDepartmentRequest;
-import kodlama.io.hrms.business.responses.cv.departmentResponses.GetAllDepartmentResponse;
+import kodlama.io.hrms.business.requests.departmentRequests.AddDepartmentRequest;
+import kodlama.io.hrms.business.responses.departmentResponses.GetAllDepartmentResponse;
 import lombok.AllArgsConstructor;
 
 @RestController

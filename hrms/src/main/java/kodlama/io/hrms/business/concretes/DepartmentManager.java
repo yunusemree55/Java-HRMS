@@ -6,8 +6,8 @@ import java.util.stream.Collectors;
 import org.springframework.stereotype.Service;
 
 import kodlama.io.hrms.business.abstracts.DepartmentService;
-import kodlama.io.hrms.business.requests.cv.departmentRequests.AddDepartmentRequest;
-import kodlama.io.hrms.business.responses.cv.departmentResponses.GetAllDepartmentResponse;
+import kodlama.io.hrms.business.requests.departmentRequests.AddDepartmentRequest;
+import kodlama.io.hrms.business.responses.departmentResponses.GetAllDepartmentResponse;
 import kodlama.io.hrms.core.utilities.mapper.ModelMapperService;
 import kodlama.io.hrms.dataAccess.abstracts.DepartmentRepository;
 import kodlama.io.hrms.entities.concretes.Department;

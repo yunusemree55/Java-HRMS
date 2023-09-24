@@ -6,11 +6,11 @@ import java.util.stream.Collectors;
 import org.springframework.stereotype.Service;
 
 import kodlama.io.hrms.business.abstracts.LanguageService;
-import kodlama.io.hrms.business.requests.cv.languageRequests.AddLanguageRequest;
-import kodlama.io.hrms.business.responses.cv.languageResponses.GetAllLanguageResponse;
+import kodlama.io.hrms.business.requests.languageRequests.AddLanguageRequest;
+import kodlama.io.hrms.business.responses.languageResponses.GetAllLanguageResponse;
 import kodlama.io.hrms.core.utilities.mapper.ModelMapperService;
 import kodlama.io.hrms.dataAccess.abstracts.LanguageRepository;
-import kodlama.io.hrms.entities.concretes.cvs.Language;
+import kodlama.io.hrms.entities.concretes.Language;
 import lombok.AllArgsConstructor;
 
 @Service

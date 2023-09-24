@@ -21,5 +21,8 @@ public interface JobAdvertisementRepository extends JpaRepository<JobAdvertiseme
 	
 	List<JobAdvertisement> getJobAdvertisementsByEmployerId(int id);
 	
+	@Query("From JobAdvertisement Where jobPosition.id = :id AND status.id = 1")
+	List<JobAdvertisement> getJobAdvertisementsByJobPositionId(int id);
+	
 	JobAdvertisement getJobAdvertisementById(int id);
 }

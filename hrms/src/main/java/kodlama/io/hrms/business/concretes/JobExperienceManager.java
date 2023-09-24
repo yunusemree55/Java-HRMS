@@ -6,11 +6,11 @@ import java.util.stream.Collectors;
 import org.springframework.stereotype.Service;
 
 import kodlama.io.hrms.business.abstracts.JobExperienceService;
-import kodlama.io.hrms.business.requests.cv.jobExperienceRequests.AddJobExperienceRequest;
-import kodlama.io.hrms.business.responses.cv.jobExperienceResponses.GetAllJobExperienceResponse;
+import kodlama.io.hrms.business.requests.jobExperienceRequests.AddJobExperienceRequest;
+import kodlama.io.hrms.business.responses.jobExperienceResponses.GetAllJobExperienceResponse;
 import kodlama.io.hrms.core.utilities.mapper.ModelMapperService;
 import kodlama.io.hrms.dataAccess.abstracts.JobExperienceRepository;
-import kodlama.io.hrms.entities.concretes.cvs.JobExperience;
+import kodlama.io.hrms.entities.concretes.JobExperience;
 import lombok.AllArgsConstructor;
 
 @Service
@@ -28,6 +28,17 @@ public class JobExperienceManager implements JobExperienceService {
 		
 		return jobExperienceResponseList;
 	}
+	
+	@Override
+	public List<GetAllJobExperienceResponse> getJobExperiencesByJobSeekerId(int id) {
+		List<GetAllJobExperienceResponse> jobExperienceResponseList = jobExperienceRepository.getJobExperiencesByJobSeekerId(id).stream()
+				.map(jobExperience -> modelMapperService.forResponse().map(jobExperience, GetAllJobExperienceResponse.class))
+				.collect(Collectors.toList());
+		
+		
+		return jobExperienceResponseList;
+	}
+	
 	@Override
 	public void add(AddJobExperienceRequest addJobExperienceRequest) {
 		
@@ -37,4 +48,5 @@ public class JobExperienceManager implements JobExperienceService {
 		jobExperienceRepository.save(jobExperience);
 		
 	}
+	
 }

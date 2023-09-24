@@ -81,9 +81,13 @@ public class JobSeekerManager implements JobSeekerService{
 
 	@Override
 	public GetJobSeekerResponse getJobSeekerById(int id) {
-		JobSeeker target = jobSeekerRepository.getReferenceById(id);
-		GetJobSeekerResponse jobSeekerResponse = modelMapperService.forResponse().map(target, GetJobSeekerResponse.class);
-		return jobSeekerResponse;
+		JobSeeker target = jobSeekerRepository.findById(id).orElse(null);
+		if(target != null) {
+			GetJobSeekerResponse jobSeekerResponse = modelMapperService.forResponse().map(target, GetJobSeekerResponse.class);
+			return jobSeekerResponse;
+		}
+		
+		return null;
 	}
 	
 	

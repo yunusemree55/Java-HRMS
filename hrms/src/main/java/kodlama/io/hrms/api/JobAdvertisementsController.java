@@ -68,6 +68,12 @@ public class JobAdvertisementsController {
 		
 	}
 	
+	@GetMapping("/getjobadvertisementsbyjobpositionid/{id}")
+	public List<GetAllJobAdvertisementResponse> getJobAdvertisementsByJobPositionId(@PathVariable int id){
+		
+		return jobAdvertisementService.getJobAdvertisementsByJobPositionId(id);
+	}
+	
 	 
 	@PostMapping("/add")
 	@ResponseStatus(code = HttpStatus.CREATED)
@@ -77,7 +83,7 @@ public class JobAdvertisementsController {
 	}
 	
 	@PutMapping("/update")
-	public void update(UpdateJobAdvertisementRequest jobAdvertisementRequest) {
+	public void update(@RequestBody UpdateJobAdvertisementRequest jobAdvertisementRequest) {
 		
 		jobAdvertisementService.update(jobAdvertisementRequest);
 	}

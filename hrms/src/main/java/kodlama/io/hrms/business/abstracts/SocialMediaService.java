@@ -2,8 +2,8 @@ package kodlama.io.hrms.business.abstracts;
 
 import java.util.List;
 
-import kodlama.io.hrms.business.requests.cv.socialMediaRequests.AddSocialMediaRequest;
-import kodlama.io.hrms.business.responses.cv.socialMediaResponses.GetAllSocialMediaResponse;
+import kodlama.io.hrms.business.requests.socialMediaRequests.AddSocialMediaRequest;
+import kodlama.io.hrms.business.responses.socialMediaResponses.GetAllSocialMediaResponse;
 
 public interface SocialMediaService {
 	

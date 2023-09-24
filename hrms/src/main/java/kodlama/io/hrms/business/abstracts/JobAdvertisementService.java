@@ -13,6 +13,7 @@ public interface JobAdvertisementService {
 	List<GetAllJobAdvertisementResponse> getJobAdvertisementByEndingDate();
 	List<GetAllJobAdvertisementResponse> getJobAdvertisementByCompanyName(String companyName);
 	List<GetAllJobAdvertisementResponse> getJobAdvertisementsByEmployerId(int id);
+	List<GetAllJobAdvertisementResponse> getJobAdvertisementsByJobPositionId(int id);
 	GetAllJobAdvertisementResponse getJobAdvertisementById(int id);
 	void add(AddJobAdvertisementRequest addJobAdvertisementRequest);
 	void update(UpdateJobAdvertisementRequest jobAdvertisementRequest);

@@ -6,11 +6,11 @@ import java.util.stream.Collectors;
 import org.springframework.stereotype.Service;
 
 import kodlama.io.hrms.business.abstracts.UniversityService;
-import kodlama.io.hrms.business.requests.cv.universityRequests.AddUniversityRequest;
-import kodlama.io.hrms.business.responses.cv.universityResponses.GetAllUniversityResponse;
+import kodlama.io.hrms.business.requests.universityRequests.AddUniversityRequest;
+import kodlama.io.hrms.business.responses.universityResponses.GetAllUniversityResponse;
 import kodlama.io.hrms.core.utilities.mapper.ModelMapperService;
 import kodlama.io.hrms.dataAccess.abstracts.UniversityRepository;
-import kodlama.io.hrms.entities.concretes.cvs.University;
+import kodlama.io.hrms.entities.concretes.University;
 import lombok.AllArgsConstructor;
 
 @Service

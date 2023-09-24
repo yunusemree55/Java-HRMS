@@ -12,8 +12,8 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import kodlama.io.hrms.business.abstracts.ProgrammingLanguageService;
-import kodlama.io.hrms.business.requests.cv.ProgrammingLanguageRequests.AddProgrammingLanguageRequest;
-import kodlama.io.hrms.business.responses.cv.ProgrammingLanguageResponses.GetAllProgrammingLanguageResponse;
+import kodlama.io.hrms.business.requests.programmingLanguageRequests.AddProgrammingLanguageRequest;
+import kodlama.io.hrms.business.responses.programmingLanguageResponses.GetAllProgrammingLanguageResponse;
 import lombok.AllArgsConstructor;
 
 @RestController

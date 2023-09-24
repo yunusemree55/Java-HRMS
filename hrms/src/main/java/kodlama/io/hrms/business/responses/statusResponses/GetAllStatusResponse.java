@@ -9,6 +9,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class GetAllStatusResponse {
 
+	private int id;
 	private String name;
 	
 }

@@ -2,8 +2,8 @@ package kodlama.io.hrms.business.abstracts;
 
 import java.util.List;
 
-import kodlama.io.hrms.business.requests.cv.ProgrammingLanguageRequests.AddProgrammingLanguageRequest;
-import kodlama.io.hrms.business.responses.cv.ProgrammingLanguageResponses.GetAllProgrammingLanguageResponse;
+import kodlama.io.hrms.business.requests.programmingLanguageRequests.AddProgrammingLanguageRequest;
+import kodlama.io.hrms.business.responses.programmingLanguageResponses.GetAllProgrammingLanguageResponse;
 
 public interface ProgrammingLanguageService {
 	

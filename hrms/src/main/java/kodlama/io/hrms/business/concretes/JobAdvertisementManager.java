@@ -126,6 +126,17 @@ public class JobAdvertisementManager implements JobAdvertisementService{
 	}
 
 
+	@Override
+	public List<GetAllJobAdvertisementResponse> getJobAdvertisementsByJobPositionId(int id) {
+		
+		List<GetAllJobAdvertisementResponse> jobAdvertisementResponseList = jobAdvertisementRepository.getJobAdvertisementsByJobPositionId(id).stream()
+				.map(jobAdvertisement -> modelMapperService.forResponse().map(jobAdvertisement, GetAllJobAdvertisementResponse.class))
+				.collect(Collectors.toList());
+		
+		return jobAdvertisementResponseList;
+	}
+
+
 	
 
 

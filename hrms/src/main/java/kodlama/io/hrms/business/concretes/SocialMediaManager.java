@@ -6,8 +6,8 @@ import java.util.stream.Collectors;
 import org.springframework.stereotype.Service;
 
 import kodlama.io.hrms.business.abstracts.SocialMediaService;
-import kodlama.io.hrms.business.requests.cv.socialMediaRequests.AddSocialMediaRequest;
-import kodlama.io.hrms.business.responses.cv.socialMediaResponses.GetAllSocialMediaResponse;
+import kodlama.io.hrms.business.requests.socialMediaRequests.AddSocialMediaRequest;
+import kodlama.io.hrms.business.responses.socialMediaResponses.GetAllSocialMediaResponse;
 import kodlama.io.hrms.business.rules.SocialMediaBusinessRules;
 import kodlama.io.hrms.core.utilities.mapper.ModelMapperService;
 import kodlama.io.hrms.dataAccess.abstracts.SocialMediaRepository;

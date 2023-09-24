@@ -12,8 +12,8 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import kodlama.io.hrms.business.abstracts.UniversityService;
-import kodlama.io.hrms.business.requests.cv.universityRequests.AddUniversityRequest;
-import kodlama.io.hrms.business.responses.cv.universityResponses.GetAllUniversityResponse;
+import kodlama.io.hrms.business.requests.universityRequests.AddUniversityRequest;
+import kodlama.io.hrms.business.responses.universityResponses.GetAllUniversityResponse;
 import lombok.AllArgsConstructor;
 
 @RestController
